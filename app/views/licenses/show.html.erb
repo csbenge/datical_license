@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h3>
   Customer: <%= @license.companyName %>
 </h3>
@@ -30,6 +28,10 @@
   <tr>
     <td><%= t('lic_Jsonlicense') %></td>
     <td><%= @license.jsonLicense %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Binlicense') %></td>
+    <td><%= bin_to_hex(@license.binLicense) %></td>
   </tr>
   <tr>
     <td><%= t('lic_User') %></td>

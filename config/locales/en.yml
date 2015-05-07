@@ -73,6 +73,7 @@ en:
   lic_Contactemail:       "Email"
   lic_User:               "CreatedBy"
   lic_Jsonlicense:        "JSON License"
+  lic_Binlicense:         "Binary License"
 # License:form
   lic_new:                "New License"
   lic_edit:               "Edit License"

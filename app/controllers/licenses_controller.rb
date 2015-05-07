@@ -1,4 +1,5 @@
 class LicensesController < ApplicationController
+  include LicensesHelper
   before_action :logged_in_user, only: [:index, :new, :edit, :update, :destroy]
   before_action :set_license, only: [:show, :edit, :update, :destroy]
 
@@ -27,6 +28,41 @@ class LicensesController < ApplicationController
   # POST /licenses.json
   def create
     @license = License.new(license_params)
+
+    @license.consumerAmount = 1
+    @license.issuer         = "CN=" + @license.companyName
+    @license.subject        = "Datical DB " + @license.consumerType
+    @license.holder         = "CN=" + @license.companyName + ",O=" + params[:license][:companyStage]
+    @license.info           = "Datical DB " + params[:license][:companyStage] + " License"
+    @license.user_id        = current_user.id
+
+    # Make the JSON input
+    jsonLicense = LicensesHelper::LICENSEJSON
+    jsonLicense.gsub! 'XconsumerAmountX', '1'
+    jsonLicense.gsub! 'XconsumerTypeX', @license.consumerType
+    jsonLicense.gsub! 'XissuerX', @license.issuer
+    jsonLicense.gsub! 'XcompanyNameX', @license.companyName
+    jsonLicense.gsub! 'XcompanyStageX', params[:license][:companyStage]
+    jsonLicense.gsub! 'XnotAfterX', getYYYYMMDD(@license.notAfter)
+
+    puts "*****"
+    puts jsonLicense
+    puts "*****"
+
+    # Make license
+    # write the jsonLicense to a file
+    jsonFilename  = "scripts/" + @license.companyName + "-" + getYYYYMMDD(@license.notAfter) + ".json"
+    binFilename   = "scripts/" + @license.companyName + "-" + getYYYYMMDD(@license.notAfter) + ".lic"
+    File.open(jsonFilename, 'w') { |file| file.write(jsonLicense) }
+    #cmd = "scripts/keygen create test.lic test.json"
+  
+    #output = ""
+    #status = POpen4::popen4("#{cmd}") do |stdout, stderr, stdin|
+    #  output = stdout.read + stderr.read
+    #end
+
+
+    @license.jsonLicense = jsonLicense
 
     respond_to do |format|
       if @license.save
