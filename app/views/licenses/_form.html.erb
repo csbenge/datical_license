@@ -1,0 +1,27 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<% if @license.new_record? %>
+	<%= f.label :companyStage, t('lic_Companystage') %>
+	<%= f.radio_button :companyStage, 'Evaluation', :checked => true %>
+  <%= f.label :companyStage, 'Evaluation', :value => 'Evaluation' %>
+  <% if current_user.admin? %>
+	  <%= f.radio_button :companyStage, 'Subscription' %>
+	  <%= f.label :companyStage, 'Subscription', :value => 'Subscription' %>
+	  <%= f.radio_button :companyStage, 'Perpetual' %>
+	  <%= f.label :companyStage, 'Perpetual', :value => 'Perpetual' %>
+	<% end %>
+<% end %>
+
+<%= f.label :consumerType, t('lic_Consumertype') %>
+<%= f.select(:consumerType, LicensesHelper::LICENSETYPE) %>
+<%= f.label :companyName, t('lic_Companyname') %>
+<%= f.text_field :companyName %>
+<%= f.label :contactName, t('lic_Contactname') %>
+<%= f.text_field :contactName %>
+<%= f.label :contactEmail, t('lic_Contactemail') %>
+<%= f.text_field :contactEmail %>
+
+<% if @license.new_record? %>
+	<%= f.label :notAfter, t('lic_Notafter') %>
+	<%= f.date_select :notAfter %>
+<% end %>

@@ -1,0 +1,118 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+
+# General
+  appname:        "DaticalKeyGen"
+  base_title:     "Datical License Key Generator"
+  home:           "Home"
+  users:          "Users"
+  about:          "About"
+  help:           "Help"
+  login:          "Login"
+  logout:         "Logout"
+  contact:        "Contact"
+  news:           "News"
+  copyright:      "© Copyright Datical, Inc. All Rights Reserved."
+
+# Users:index
+  user_all:             "All Users"
+  user_gravatar:        "Gravatar"
+  user_firstname:       "First Name"
+  user_lastname:        "Last Name"
+  user_email:           "Email"
+  user_id:              "ID"
+  user_admin:           "Admin"
+  user_activated:       "Activated"
+  user_signup:          "Add User"
+
+# Users:form, edit, new,
+  user_edit:            "Edit User"
+  user_login:           "Login"
+  user_new:             "Add User"
+  user_gravatar_change: "Change Gravatar"
+
+# User:password
+  user_password:         "Password"
+  user_password_confirm: "Password Confirmation"
+  user_password_forgot:  "(Forgot Password?)"
+  user_password_reset:   "Reset Password"
+  user_password_update:  "Update Password"
+
+# Licenses:index
+  license_all:            "Licenses"
+  lic_Companystage:       "Type"
+  lic_Consumeramount:     "Amount"
+  lic_Consumertype:       "Feature"
+  lic_Issuer:             "Issuer"
+  lic_Subject:            "Subject"
+  lic_Holder:             "Holder"
+  lic_Notafter:           "Expires"
+  lic_Info:               "Info"
+  lic_Companyname:        "Company"
+  lic_Contactname:        "Contact"
+  lic_Contactemail:       "Email"
+  lic_User:               "CreatedBy"
+  lic_Jsonlicense:        "JSON License"
+# License:form
+  lic_new:                "New License"
+  lic_edit:               "Edit License"
+
+# Sessions
+  remember_me:          "Remember me on this computer"
+
+# Actions
+  actions:              "Actions"
+  show:                 "Show"
+  edit:                 "Edit"
+  destroy:              "Destroy"
+  destory_q:            "Really Destroy?"
+
+# Buttons
+  btn_commit:           "Commit"
+  btn_login:            "Login"
+  btn_submit:           "Submit"
+  btn_user_save:        "Save Changes"
+  btn_user_signup:      "Sign Up"
+  btn_user_create:      "Create User"
+  btn_user_password_reset:   "Reset Password"
+  btn_user_password_update:  "Update Password"
+  btn_lic_create:      "Create License"
+  btn_lic_update:      "Update License"
+
+# Messages
+  msg_user_activated:             "Activated!"
+  msg_user_activated:             "Account activated!"
+  msg_user_activation_link_bad:   "Invalid activation link!"
+  msg_user_activate_email_sent:   "Please check your email to activate your account."
+  msg_admin_cannot_delete_self:   "Administrators cannot delete self-terminate!"
+  msg_account_cancelled:          "Account #{@user.email} has been cancelled!"
+  msg_user_account_updated:       "Account updated"
+  msg_please_login:               "Please log in."
+  msg_account_not_activated:      "Account not activated. "
+  msg_check_email_for_activation: "Check your email for the activation link."
+  msg_invalid_login_info:         "Invalid email/password combination"
+  msg_email_password_reset:       "Email sent with password reset instructions"
+  msg_email_not_found:            "Email address not found"
+  msg_password_not_blank:         "Password can't be blank"
+  msg_password_was_reset:         "Password has been reset."
+  msg_password_reset_expired:     "Password reset has expired."

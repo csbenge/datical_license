@@ -1,0 +1,15 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :firstname, t('user_firstname') %>
+<%= f.text_field :firstname, autofocus: true %>
+<%= f.label :lastname, t('user_lastname') %>
+<%= f.text_field :lastname %>
+
+<%= f.label :email, t('user_email') %>
+<%= f.email_field :email %>
+
+<%= f.label :password, t('user_password') %>
+<%= f.password_field :password %>
+
+<%= f.label :password_confirmation, t('user_password_confirm') %>
+<%= f.password_field :password_confirmation %>

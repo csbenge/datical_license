@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  consumerAmount: 1
+  consumerType: MyString
+  issuer: MyString
+  subject: MyString
+  holder: MyString
+  notAfter: 2015-05-05 14:39:45
+  info: MyString
+  companyName: MyString
+  contactName: MyString
+  contactEmail: MyString
+  jsonLicense: '{ "consumerAmount":1, "consumerType":"User", "issuer":"CN=Datical Inc.", "subject":"Datical DB Admin", "holder":"CN=Bank of America eComm,O=POC", "notAfter":"2015-02-27T23:59:59-0500", "info":"Datical DB POC License" } '
+  user_id: 1
+
+two:
+  consumerAmount: 1
+  consumerType: MyString
+  issuer: MyString
+  subject: MyString
+  holder: MyString
+  notAfter: 2015-05-05 14:39:45
+  info: MyString
+  companyName: MyString
+  contactName: MyString
+  contactEmail: MyString
+  jsonLicense: '{ "consumerAmount":1, "consumerType":"User", "issuer":"CN=Datical Inc.", "subject":"Datical DB Admin", "holder":"CN=Bank of America eComm,O=POC", "notAfter":"2015-02-27T23:59:59-0500", "info":"Datical DB POC License" } '
+  user_id: 1

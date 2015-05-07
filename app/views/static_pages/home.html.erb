@@ -1,0 +1,16 @@
+<% provide(:title, t('home')) %>
+
+<div class="row">
+  <div class="large-12 columns large-centered text-center">
+    <h2>Datical License Key Generator</h2>
+
+    <% if logged_in? %>
+      <%= link_to t('logout'), logout_path, class: "button small round radius success", method: "delete" %>
+      <br>
+      <%= link_to current_user.email, edit_user_path(current_user) %>
+    <% else %>
+      <%= link_to t('login'), login_path, class: "button small round radius success" %>
+    <% end %>   
+
+  </div>
+</div>

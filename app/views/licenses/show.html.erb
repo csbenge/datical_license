@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h3>
+  Customer: <%= @license.companyName %>
+</h3>
+
+<table widtd="100%" class="responsive">
+  <thead>
+    <tr>
+      <th><strong>Key</strong></th>
+      <th><strong>Value</strong></th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= t('lic_Companyname') %></td>
+    <td><%= @license.companyName %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Contactname') %></td>
+    <td><%= @license.contactName %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Contactemail') %></td>
+    <td><%= @license.contactEmail %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Notafter') %></td>
+    <td><%= getYYYYMMDD(@license.notAfter) %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Jsonlicense') %></td>
+    <td><%= @license.jsonLicense %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_User') %></td>
+    <td><%= @license.user.lastname %></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><strong>Raw</strong></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Consumeramount') %></td>
+    <td><%= @license.consumerAmount %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Consumertype') %></td>
+    <td><%= @license.consumerType %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Issuer') %></td>
+    <td><%= @license.issuer %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Subject') %></td>
+    <td><%= @license.subject %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Holder') %></td>
+    <td><%= @license.holder %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Notafter') %></td>
+    <td><%= @license.notAfter %></td>
+  </tr>
+  <tr>
+    <td><%= t('lic_Info') %></td>
+    <td><%= @license.info %></td>
+  </tr>
+
+</table>
+

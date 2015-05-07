@@ -1,0 +1,83 @@
+// import the CSS framework
+@import "foundation";
+
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+.field_with_errors {
+  padding: 0px;
+  background-color: red;
+}
+
+#error_explanation {
+
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+// override for the 'Home' navigation link
+.top-bar .name {
+  font-size: rem-calc(13);
+  line-height: 45px; }
+.top-bar .name a {
+  font-weight: normal;
+  color: white;
+  padding: 0 15px; }
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create mixins using Foundation classes
+@mixin twelve-columns {
+  @extend .small-12;
+  @extend .columns;
+  }
+@mixin six-columns-centered {
+  @extend .small-6;
+  @extend .columns;
+  @extend .text-center;
+  }
+// create your own classes
+// to make views framework-neutral
+.column {
+  @include six-columns-centered;
+  }
+.form {
+  @include grid-column(6);
+  }
+.form-centered {
+  @include six-columns-centered;
+  }
+.submit {
+  @extend .button;
+  @extend .radius;
+  }
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @include twelve-columns;
+  background-color: #eee;
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }

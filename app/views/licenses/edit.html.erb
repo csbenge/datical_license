@@ -1,0 +1,11 @@
+<% provide(:title, t('lic_edit')) %>
+<h3><%= yield(:title) %></h3>
+
+  <div class="large-12 columns large-centered">
+    <%= form_for(@license) do |f| %>
+      <%= render 'form', f: f %>
+
+       <%= f.submit t('btn_lic_update'), class: "button tiny round radius success" %>
+    <% end %>
+
+  </div>

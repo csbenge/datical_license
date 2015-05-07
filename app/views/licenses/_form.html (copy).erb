@@ -1,0 +1,61 @@
+<%= form_for(@license) do |f| %>
+  <% if @license.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@license.errors.count, "error") %> prohibited this license from being saved:</h2>
+
+      <ul>
+      <% @license.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :consumerAmount %><br>
+    <%= f.number_field :consumerAmount %>
+  </div>
+  <div class="field">
+    <%= f.label :consumerType %><br>
+    <%= f.text_field :consumerType %>
+  </div>
+  <div class="field">
+    <%= f.label :issuer %><br>
+    <%= f.text_field :issuer %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :holder %><br>
+    <%= f.text_field :holder %>
+  </div>
+  <div class="field">
+    <%= f.label :notAfter %><br>
+    <%= f.datetime_select :notAfter %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br>
+    <%= f.text_field :info %>
+  </div>
+  <div class="field">
+    <%= f.label :companyName %><br>
+    <%= f.text_field :companyName %>
+  </div>
+  <div class="field">
+    <%= f.label :contactName %><br>
+    <%= f.text_field :contactName %>
+  </div>
+  <div class="field">
+    <%= f.label :contactEmail %><br>
+    <%= f.text_field :contactEmail %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

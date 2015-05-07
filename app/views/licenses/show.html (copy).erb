@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Consumeramount:</strong>
+  <%= @license.consumerAmount %>
+</p>
+
+<p>
+  <strong>Consumertype:</strong>
+  <%= @license.consumerType %>
+</p>
+
+<p>
+  <strong>Issuer:</strong>
+  <%= @license.issuer %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @license.subject %>
+</p>
+
+<p>
+  <strong>Holder:</strong>
+  <%= @license.holder %>
+</p>
+
+<p>
+  <strong>Notafter:</strong>
+  <%= @license.notAfter %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @license.info %>
+</p>
+
+<p>
+  <strong>Companyname:</strong>
+  <%= @license.companyName %>
+</p>
+
+<p>
+  <strong>Contactname:</strong>
+  <%= @license.contactName %>
+</p>
+
+<p>
+  <strong>Contactemail:</strong>
+  <%= @license.contactEmail %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @license.user %>
+</p>
+
+<%= link_to 'Edit', edit_license_path(@license) %> |
+<%= link_to 'Back', licenses_path %>

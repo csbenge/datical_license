@@ -1,0 +1,59 @@
+<% provide(:title, t('user_all')) %>
+<h3>
+  <%= yield(:title) %>
+  <%= link_to t('user_signup'), signup_path, :class => "success round radius label" %>
+</h3>
+
+<div class="row">
+  <div class="small-4 large-centered columns">
+    <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
+  </div>
+</div>
+
+<table width="100%" class="responsive" id="sortable">
+  <thead>
+    <tr>
+    	<th width="20%"><%= t('user_gravatar') %></th>
+      <th width="20%"><%= t('user_firstname') %></th>
+      <th width="20%"><%= t('user_lastname') %></th>
+      <% if current_user.admin? %>
+        <th width="20%"><%= t('user_email') %></th>
+        <th style="text-align:center;">ID</th>
+        <th width="5%" style="text-align:center;"><%= t('user_admin') %>?</th>
+        <th width="5%" style="text-align:center;"><%= t('user_activated') %>?</th>
+      <% end %>
+      <th colspan="10%" style="text-align:center;"><%= t('actions') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  <% @users.each do |user| %>
+  	<tr>
+      <td><%= gravatar_for user, size: 50 %></td>
+      <td><%= link_to user.firstname, user %></td>
+      <td><%= link_to user.lastname, user %></td>
+      <% if current_user.admin? %>
+        <td><%= link_to user.email, user %></td>
+        <td style="text-align:center;"><%= user.id %></td>
+        <td style="text-align:center;"><span class="<%= user.admin ? "alert" : "success"%> round radius label"><%= user.admin %></span></td>
+        <td style="text-align:center;"><span class="<%= user.activated ? "success" : "alert"%> round radius label"><%= user.activated %></span></td>
+      <% end %>
+      <td><%= link_to t('show'), user %></td>
+    	<% if current_user?(user) || current_user.admin? %>
+        <td><%= link_to t('edit'), edit_user_path(user) %></td>
+        <td>
+          <%= link_to t('destroy'), user, method: :delete, data: { confirm: t('destory_q') } %>
+        </td>
+      <% end %>
+  	</tr>
+    <% end %>
+
+  </tbody>
+ </table>
+
+<div class="row">
+  <div class="small-4 large-centered columns">
+    <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
+  </div>
+</div>
