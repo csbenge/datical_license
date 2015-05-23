@@ -81,3 +81,61 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+
+.your-pricing-class  {
+  @include pricing-table-container;
+  .your-title-class  {
+    @include pricing-table-title;
+    font-size: 22px;
+  }
+  .your-price-class  {
+    @include pricing-table-price;
+  }
+  .your-desc-class   {
+    @include pricing-table-description;
+  }
+  .your-bullet-class {
+    @include pricing-table-bullet;
+  }
+  .your-cta-class    {
+    @include pricing-table-cta;
+  }
+}
+
+
+  /* unvisited link */
+a.c_textlink:link {
+    color: gray;
+    background-color: none;
+}
+
+/* visited link */
+a.c_textlink:visited {
+    color: gray;
+    background-color: none;
+}
+
+/* mouse over link */
+a.c_textlink:hover {
+    color: gray;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+/* selected link */
+a.c_textlink:active {
+    color: gray;
+    background-color: none;
+}
+
+/* unvisited link */
+a.p_textlink:link {
+    color: gray;
+    background-color: none;
+}
+
+/* visited link */
+a.p_textlink:visited {
+    color: gray;
+    background-color: none;
+}

@@ -3,7 +3,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionController::TestCase
   
   def setup
-    @base_title = "Datical License Key Generator"
+    @base_title = "Datical License Key Manager"
   end
 
   test "should get home" do

@@ -2,7 +2,36 @@
 
 <div class="row">
   <div class="large-12 columns large-centered text-center">
-    <h2>Datical License Key Generator</h2>
+    <h2>Datical License Key Manager</h2>
+  </div>
+</div>
+
+<br/>
+<%= get_EvaluationLicense_Counts() %>
+<div class="row">
+  <div class="small-2 large-4 columns">
+    <ul class="your-pricing-class">
+      <li class="your-title-class">Evaluation</li>
+      <li class="your-price-class"><%= @evalCount %></li>
+    </ul>
+  </div>
+  <div class="small-4 large-4 columns">
+    <ul class="your-pricing-class">
+      <li class="your-title-class">Subscription</li>
+      <li class="your-price-class"><%= @subsCount %></li>
+    </ul>
+  </div>
+  <div class="small-6 large-4 columns">
+    <ul class="your-pricing-class">
+      <li class="your-title-class">Perpetual</li>
+      <li class="your-price-class"><%= @perpCount %></li>
+    </ul>
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="large-12 columns large-centered text-center">
 
     <% if logged_in? %>
       <%= link_to t('logout'), logout_path, class: "button small round radius success", method: "delete" %>

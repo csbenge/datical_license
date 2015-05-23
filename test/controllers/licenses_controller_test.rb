@@ -20,7 +20,18 @@ class LicensesControllerTest < ActionController::TestCase
   test "should create license" do
     log_in_as(@admin)
     assert_difference('License.count') do
-      post :create, license: { companyName: @license.companyName, consumerAmount: @license.consumerAmount, consumerType: @license.consumerType, contactEmail: @license.contactEmail, contactName: @license.contactName, holder: @license.holder, info: @license.info, issuer: @license.issuer, notAfter: @license.notAfter, subject: @license.subject, user_id: @license.user_id }
+      post :create, license: { companyName: @license.companyName, 
+                consumerAmount: @license.consumerAmount, 
+                consumerType: @license.consumerType, 
+                contactEmail: @license.contactEmail, 
+                contactName: @license.contactName, 
+                holder: @license.holder, 
+                info: @license.info, 
+                issuer: @license.issuer, 
+                notAfter: @license.notAfter, 
+                subject: @license.subject, 
+                user_id: @license.user_id,
+                companyStage: "Admin" }
     end
 
     assert_redirected_to license_path(assigns(:license))

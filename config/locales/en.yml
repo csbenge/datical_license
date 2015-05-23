@@ -22,8 +22,8 @@
 en:
 
 # General
-  appname:        "DaticalKeyGen"
-  base_title:     "Datical License Key Generator"
+  appname:        "DaticalKeyManager"
+  base_title:     "Datical License Key Manager"
   home:           "Home"
   users:          "Users"
   about:          "About"
@@ -66,7 +66,8 @@ en:
   lic_Issuer:             "Issuer"
   lic_Subject:            "Subject"
   lic_Holder:             "Holder"
-  lic_Notafter:           "Expires"
+  lic_Notafter:           "Date Expires"
+  lic_NotafterDays:           "Days Expires"
   lic_Info:               "Info"
   lic_Companyname:        "Company"
   lic_Contactname:        "Contact"
@@ -85,6 +86,7 @@ en:
   actions:              "Actions"
   show:                 "Show"
   edit:                 "Edit"
+  download:             "Download"
   destroy:              "Destroy"
   destory_q:            "Really Destroy?"
 

@@ -26,6 +26,10 @@
     <td><%= getYYYYMMDD(@license.notAfter) %></td>
   </tr>
   <tr>
+    <td><%= t('lic_NotafterDays') %></td>
+    <td><%= raw getNotAfterDays(@license.notAfter) %></td>
+  </tr>
+  <tr>
     <td><%= t('lic_Jsonlicense') %></td>
     <td><%= @license.jsonLicense %></td>
   </tr>
@@ -35,7 +39,7 @@
   </tr>
   <tr>
     <td><%= t('lic_User') %></td>
-    <td><%= @license.user.lastname %></td>
+    <td><%= @license.user.firstname %> <%= @license.user.lastname %></td>
   </tr>
 
   <tr>

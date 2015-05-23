@@ -1,31 +1,23 @@
 class LicensesController < ApplicationController
   include LicensesHelper
-  before_action :logged_in_user, only: [:index, :new, :edit, :update, :destroy]
-  before_action :set_license, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :new, :edit, :update, :destroy, :download]
+  before_action :set_license, only: [:show, :edit, :update, :destroy, :download]
 
-  # GET /licenses
-  # GET /licenses.json
   def index
     #@licenses = License.all
     @licenses = License.paginate(page: params[:page])
   end
 
-  # GET /licenses/1
-  # GET /licenses/1.json
   def show
   end
 
-  # GET /licenses/new
   def new
     @license = License.new
   end
 
-  # GET /licenses/1/edit
   def edit
   end
 
-  # POST /licenses
-  # POST /licenses.json
   def create
     @license = License.new(license_params)
 
@@ -36,7 +28,12 @@ class LicensesController < ApplicationController
     @license.info           = "Datical DB " + params[:license][:companyStage] + " License"
     @license.user_id        = current_user.id
 
-    # Make the JSON input
+    # If not an admin 2 week licenses only
+    if @license.notAfter == nil
+      @license.notAfter = DateTime.now + 14
+    end
+
+    # Make the JSON input to keygen and write to file
     jsonLicense = LicensesHelper::LICENSEJSON
     jsonLicense.gsub! 'XconsumerAmountX', '1'
     jsonLicense.gsub! 'XconsumerTypeX', @license.consumerType
@@ -45,24 +42,32 @@ class LicensesController < ApplicationController
     jsonLicense.gsub! 'XcompanyStageX', params[:license][:companyStage]
     jsonLicense.gsub! 'XnotAfterX', getYYYYMMDD(@license.notAfter)
 
-    puts "*****"
+    puts "JSON *****"
     puts jsonLicense
     puts "*****"
-
-    # Make license
-    # write the jsonLicense to a file
-    jsonFilename  = "scripts/" + @license.companyName + "-" + getYYYYMMDD(@license.notAfter) + ".json"
-    binFilename   = "scripts/" + @license.companyName + "-" + getYYYYMMDD(@license.notAfter) + ".lic"
+    filename = @license.companyName.gsub(' ', '_')
+    filename = filename + "-" + getYYYYMMDD(@license.notAfter)
+    jsonFilename  = "#{Rails.root}" + "/app/scripts/" + filename + ".json"
+    binFilename   = "#{Rails.root}" + "/app/scripts/" + filename + ".lic"
     File.open(jsonFilename, 'w') { |file| file.write(jsonLicense) }
-    #cmd = "scripts/keygen create test.lic test.json"
-  
-    #output = ""
-    #status = POpen4::popen4("#{cmd}") do |stdout, stderr, stdin|
-    #  output = stdout.read + stderr.read
-    #end
 
+    # Generate License
+    keygenJar = "#{Rails.root}" + "/app/scripts/" + "keygen.jar"
+    cmd       = "java -jar #{keygenJar} create #{binFilename} #{jsonFilename}"
+
+    output = ""
+    status = POpen4::popen4("#{cmd}") do |stdout, stderr, stdin|
+      output = stdout.read + stderr.read
+    end
+
+    puts "KEYGEN *****"
+    puts output
+    puts "*****"
 
     @license.jsonLicense = jsonLicense
+
+    binLicense = File.binread(binFilename)
+    @license.binLicense = binLicense
 
     respond_to do |format|
       if @license.save
@@ -75,8 +80,6 @@ class LicensesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /licenses/1
-  # PATCH/PUT /licenses/1.json
   def update
     respond_to do |format|
       if @license.update(license_params)
@@ -89,8 +92,6 @@ class LicensesController < ApplicationController
     end
   end
 
-  # DELETE /licenses/1
-  # DELETE /licenses/1.json
   def destroy
     @license.destroy
     respond_to do |format|

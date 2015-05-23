@@ -1,0 +1,9 @@
+{
+	  "consumerAmount":1,
+	  "consumerType":"Admin",
+	  "issuer":"CN=Bank of America",
+	  "subject":"Datical DB Admin",
+	  "holder":"CN=Bank of America,O=Evaluation",
+	  "notAfter":"2015-05-15T23:59:59-0500",
+	  "info":"Datical DB Evaluation License"
+	}

@@ -9,7 +9,10 @@
       <li><label><%= t('appname') %></label></li>
       <li><%= link_to t('home'), root_path, class: "navtop_link" %></li>
       <% if logged_in? %>
-         <li><%= link_to t('users'), users_path %></li>
+         <li><%= link_to "Licenses", licenses_path %></li>
+         <% if current_user.admin? %>
+           <li><%= link_to "Users", users_path %></li>
+        <% end %>
       <% end %>
       <li><%= link_to t('help'),  help_path, class: "navtop_link" %></li>
       <% if logged_in? %>

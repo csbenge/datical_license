@@ -10,10 +10,10 @@
 	  <%= f.radio_button :companyStage, 'Perpetual' %>
 	  <%= f.label :companyStage, 'Perpetual', :value => 'Perpetual' %>
 	<% end %>
+	<%= f.label :consumerType, t('lic_Consumertype') %>
+	<%= f.select(:consumerType, LicensesHelper::LICENSETYPE) %>
 <% end %>
 
-<%= f.label :consumerType, t('lic_Consumertype') %>
-<%= f.select(:consumerType, LicensesHelper::LICENSETYPE) %>
 <%= f.label :companyName, t('lic_Companyname') %>
 <%= f.text_field :companyName %>
 <%= f.label :contactName, t('lic_Contactname') %>
@@ -22,6 +22,8 @@
 <%= f.text_field :contactEmail %>
 
 <% if @license.new_record? %>
-	<%= f.label :notAfter, t('lic_Notafter') %>
-	<%= f.date_select :notAfter %>
+	<% if current_user.admin? %>
+		<%= f.label :notAfter, t('lic_Notafter') %>
+		<%= f.date_select :notAfter %>
+	<% end %>
 <% end %>

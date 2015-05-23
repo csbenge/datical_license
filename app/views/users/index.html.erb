@@ -36,14 +36,14 @@
       <% if current_user.admin? %>
         <td><%= link_to user.email, user %></td>
         <td style="text-align:center;"><%= user.id %></td>
-        <td style="text-align:center;"><span class="<%= user.admin ? "alert" : "success"%> round radius label"><%= user.admin %></span></td>
-        <td style="text-align:center;"><span class="<%= user.activated ? "success" : "alert"%> round radius label"><%= user.activated %></span></td>
+        <td style="text-align:center;"><span class="<%= user.admin ? "alert" : "primary"%> radius label"><%= user.admin %></span></td>
+        <td style="text-align:center;"><span class="<%= user.activated ? "primary" : "alert"%> radius label"><%= user.activated %></span></td>
       <% end %>
-      <td><%= link_to t('show'), user %></td>
+      <td><%= link_to t('show'), user, :class => "success round radius label" %></td>
     	<% if current_user?(user) || current_user.admin? %>
-        <td><%= link_to t('edit'), edit_user_path(user) %></td>
+        <td><%= link_to t('edit'), edit_user_path(user), :class => "success round radius label" %></td>
         <td>
-          <%= link_to t('destroy'), user, method: :delete, data: { confirm: t('destory_q') } %>
+          <%= link_to t('destroy'), user, method: :delete, data: { confirm: t('destory_q') }, :class => "success round radius label" %>
         </td>
       <% end %>
   	</tr>

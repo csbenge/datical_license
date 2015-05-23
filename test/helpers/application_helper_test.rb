@@ -3,7 +3,7 @@ require 'test_helper'
 class ApplicationHelperTest < ActionView::TestCase
 
 	def setup
-    @base_title = "Datical License Key Generator"
+    @base_title = "Datical License Key Manager"
   end
 
   test "full title helper" do
