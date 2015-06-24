@@ -12,13 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require foundation
-//= require responsive-tables
+//= require turbolinks
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.foundation
 //= require_tree .
 $(function() {
   $(document).foundation();
 });
+
 $(document).ready(function() {
-	$('#sortable').dataTable();
+  $('#sortable').dataTable({
+  responsive: true
+});
 } );

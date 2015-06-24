@@ -12,4 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require dataTables/jquery.dataTables.foundation
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

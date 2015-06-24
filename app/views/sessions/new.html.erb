@@ -9,17 +9,10 @@
       <%= f.email_field :email, autofocus: true %>
 
       <%= f.label :password, t('user_password') %>
-      <%= link_to t('user_password_forgot'), new_password_reset_path %>
       <%= f.password_field :password %>
 
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span><%= t('remember_me') %></span>
-      <% end %>
-
-      <%= f.submit t('btn_login'), class: "button radius primary" %>
+      <%= f.submit t('btn_login'), class: "button round radius success small" %>
     <% end %>
 
-    <p><%= t('user_new') %>? <%= link_to t('user_signup'), signup_path %></p>
   </div>
 </div>

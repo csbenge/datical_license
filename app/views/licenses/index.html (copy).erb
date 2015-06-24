@@ -1,6 +1,4 @@
 <% provide(:title, t('license_all')) %>
-
-
 <h3>
   <%= yield(:title) %>
   <%= link_to 'New License', new_license_path, :class => "success round radius label" %>
@@ -21,16 +19,16 @@
       <th nowrap="true"><%= t('lic_Notafter') %></th>
       <th style="text-align:center;"><%= t('lic_NotafterDays') %></th>
       <th><%= t('lic_User') %></th>
-  
+      <th style="text-align:center;"><%= t('lic_Consumeramount') %></th>
       <th><%= t('lic_Consumertype') %></th>
-      
-     
-     
+      <th><%= t('lic_Issuer') %></th>
+      <th><%= t('lic_Subject') %></th>
+      <th><%= t('lic_Holder') %></th>
       <th><%= t('lic_Info') %></th>
       <% if current_user.admin? %>
-        <th width="10%" colspan="4" style="text-align:center;"><%= t('actions') %></th>
+        <th colspan="4" style="text-align:center;"><%= t('actions') %></th>
       <% else %>
-        <th width="10%" colspan="3" style="text-align:center;"><%= t('actions') %></th>
+        <th colspan="3" style="text-align:center;"><%= t('actions') %></th>
       <% end %>
     </tr>
   </thead>
@@ -44,20 +42,20 @@
         <td><%= getYYYYMMDD(license.notAfter) %></td>
         <td style="text-align:center;"><%= raw getNotAfterDays(license.notAfter) %></td>
         <td><%= license.user.lastname %></td>
-       
+        <td style="text-align:center;"><%= license.consumerAmount %></td>
         <td><%= license.consumerType %></td>
-       
-       
-        
+        <td><%= license.issuer %></td>
+        <td><%= license.subject %></td>
+        <td><%= license.holder %></td>
         <td><%= license.info %></td>
         <td><%= link_to t('show'), license, :class => "success round radius label" %></td>
         <td><%= link_to t('edit'), edit_license_path(license), :class => "success round radius label" %></td>
         <td><%= link_to t('download'), home_download_lic_url(license), :class => "success round radius label" %></td>
+        <td>
         <% if current_user.admin? %>
-          <td>
           <%= link_to 'Destroy', license, method: :delete, data: { confirm: t('destory_q') }, :class => "success round radius label" %>
-          </td>
         <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

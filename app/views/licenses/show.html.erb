@@ -1,5 +1,6 @@
 <h3>
-  Customer: <%= @license.companyName %>
+  Customer: <%= @license.companyName %> 
+  <%= link_to t('download'), home_download_lic_url(@license), :class => "success round radius label" %>
 </h3>
 
 <table widtd="100%" class="responsive">

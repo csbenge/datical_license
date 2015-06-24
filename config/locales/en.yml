@@ -24,7 +24,7 @@ en:
 # General
   appname:        "DaticalKeyManager"
   base_title:     "Datical License Key Manager"
-  home:           "Home"
+  home:           "Dashboard"
   users:          "Users"
   about:          "About"
   help:           "Help"
