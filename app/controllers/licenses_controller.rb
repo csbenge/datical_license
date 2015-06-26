@@ -6,6 +6,7 @@ class LicensesController < ApplicationController
   def index
     #@licenses = License.all
     @licenses = License.paginate(page: params[:page]).order('companyName ASC')
+    @licenses_grid = initialize_grid(License)
   end
 
   def show

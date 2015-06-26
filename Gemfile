@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'				# Build JSON APIs with ease.
 gem 'sdoc', '~> 0.4.0', group: :doc	# bundle exec rake doc:rails generates the API under doc/api.
 gem 'will_paginate', '3.0.7'
 gem 'will_paginate-foundation'
+gem "wice_grid", '3.4.2'
 
 gem 'bcrypt', '~> 3.1.7'			  # Use ActiveModel has_secure_password
 gem 'popen4'

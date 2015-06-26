@@ -17,6 +17,8 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.foundation
 //= require_tree .
+//= require wice_grid
+
 $(function() {
   $(document).foundation();
 });

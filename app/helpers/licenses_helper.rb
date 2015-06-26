@@ -46,11 +46,17 @@ module LicensesHelper
     licenses = License.all
     if licenses
     	@evalCount = 0
+    	@expiredEvals = 0
 	    @subsCount = 0
 	    @perpCount = 0
       licenses.each do |lic|
 	    	if lic.jsonLicense.include? "O=Evaluation"
 	 				@evalCount = @evalCount + 1
+	 				now = DateTime.now
+					daysRemaining = ((lic.notAfter - now)/(60*60*24)).round
+					if daysRemaining <= 0
+					 	@expiredEvals = @expiredEvals + 1
+					end
 	    	end
 	    end
     end

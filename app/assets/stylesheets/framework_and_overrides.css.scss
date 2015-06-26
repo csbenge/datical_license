@@ -139,3 +139,77 @@ a.p_textlink:visited {
     color: gray;
     background-color: none;
 }
+
+/* unvisited link */
+a:link {
+    color: gray;
+}
+
+/* visited link */
+a:visited {
+    color: gray;
+    background-color: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: gray;;
+    
+}
+
+/* selected link */
+a:active {
+    color: gray;
+}
+
+/* WICEGRID LINKS */
+
+/* unvisited link */
+a.asc:link {
+    color: gray;
+    background-color: none;
+    text-decoration: underline;
+}
+
+/* visited link */
+a.asc:visited {
+    color: gray;
+    background-color: none;
+}
+
+/* mouse over link */
+a.asc:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+/* selected link */
+a.asc:active {
+    color: gray;
+    background-color: none;
+}
+
+/* unvisited link */
+a.desc:link {
+    color: gray;
+    background-color: none;
+    text-decoration: underline;
+}
+
+/* visited link */
+a.desc:visited {
+    color: gray;
+    background-color: none;
+}
+
+/* mouse over link */
+a.desc:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+/* selected link */
+a.desc:active {
+    color: gray;
+    background-color: none;
+}

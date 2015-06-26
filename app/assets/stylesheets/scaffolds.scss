@@ -24,9 +24,12 @@ a {
     color: #666;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+
   }
+}
+
+a.noul:link {
+    text-decoration: none;
 }
 
 div {

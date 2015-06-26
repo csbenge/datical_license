@@ -1,70 +1,60 @@
 <% provide(:title, t('license_all')) %>
 
-
 <h3>
   <%= yield(:title) %>
   <%= link_to 'New License', new_license_path, :class => "success round radius label" %>
 </h3>
 
-<div class="row">
-  <div class="small-4 large-centered columns">
-    <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
-  </div>
-</div>
+<%= grid(@licenses_grid, show_filters: :no) do |g|
 
-<table width="100%" class="responsive" id="sortable">
-  <thead>
-    <tr>
-      <th><%= t('lic_Companyname') %></th>
-      <th><%= t('lic_Contactname') %></th>
-      <th><%= t('lic_Contactemail') %></th>
-      <th nowrap="true"><%= t('lic_Notafter') %></th>
-      <th style="text-align:center;"><%= t('lic_NotafterDays') %></th>
-      <th><%= t('lic_User') %></th>
-  
-      <th><%= t('lic_Consumertype') %></th>
-      
-     
-     
-      <th><%= t('lic_Info') %></th>
-      <% if current_user.admin? %>
-        <th width="10%" colspan="4" style="text-align:center;"><%= t('actions') %></th>
-      <% else %>
-        <th width="10%" colspan="3" style="text-align:center;"><%= t('actions') %></th>
-      <% end %>
-    </tr>
-  </thead>
+  g.column name: t('lic_Companyname'), attribute: 'companyName' do |license|
+    license.companyName
+  end
 
-  <tbody>
-    <% @licenses.each do |license| %>
-      <tr>
-        <td nowrap="true"><%= license.companyName %></td>
-        <td nowrap="true"><%= license.contactName %></td>
-        <td><%= license.contactEmail %></td>
-        <td><%= getYYYYMMDD(license.notAfter) %></td>
-        <td style="text-align:center;"><%= raw getNotAfterDays(license.notAfter) %></td>
-        <td><%= license.user.lastname %></td>
-       
-        <td><%= license.consumerType %></td>
-       
-       
-        
-        <td><%= license.info %></td>
-        <td><%= link_to t('show'), license, :class => "success round radius label" %></td>
-        <td><%= link_to t('edit'), edit_license_path(license), :class => "success round radius label" %></td>
-        <td><%= link_to t('download'), home_download_lic_url(license), :class => "success round radius label" %></td>
-        <% if current_user.admin? %>
-          <td>
-          <%= link_to 'Destroy', license, method: :delete, data: { confirm: t('destory_q') }, :class => "success round radius label" %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  g.column name: t('lic_Contactname')  do |license|
+    license.contactName
+  end
 
-<div class="row">
-  <div class="small-4 large-centered columns">
-    <%= will_paginate @collection, renderer: FoundationPagination::Rails %>
-  </div>
-</div>
+  g.column name: t('lic_Contactemail')  do |license|
+    license.contactEmail
+  end
+
+  g.column name: t('lic_Notafter'), attribute: 'notAfter'  do |license|
+    getYYYYMMDD(license.notAfter)
+  end
+
+  g.column name: t('lic_NotafterDays'), attribute: 'notAfter'  do |license|
+    raw getNotAfterDays(license.notAfter)
+  end
+
+  g.column name: t('lic_User')  do |license|
+    license.user.lastname
+  end
+
+  g.column name: t('lic_Consumertype')  do |license|
+    license.consumerType
+  end
+
+  g.column name: t('lic_Info')  do |license|
+    license.info
+  end
+
+  g.column do |license|
+    link_to t('show'), license, :class => "noul success round radius label"
+  end
+
+  g.column do |license|
+    link_to t('edit'), edit_license_path(license), :class => "noul success round radius label"
+  end
+
+  g.column do |license|
+    link_to t('download'), home_download_lic_url(license), :class => "noul success round radius label"
+  end
+
+  if current_user.admin?
+    g.column do |license|
+      link_to 'Destroy', license, method: :delete, data: { confirm: t('destory_q') }, :class => "noul success round radius label"
+    end
+  end
+
+end -%>
